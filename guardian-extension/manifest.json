@@ -2,10 +2,11 @@
   "manifest_version": 3,
   "name": "Guardian",
   "version": "1.0.0",
-  "description": "AI-gated YouTube focus extension. Blocks Shorts and screens videos with Cerebras AI.",
+  "description": "AI-gated focus extension. Blocks YouTube Shorts, Instagram Reels, and screens videos with Cerebras AI.",
   "permissions": ["storage", "tabs"],
   "host_permissions": [
     "https://www.youtube.com/*",
+    "https://www.instagram.com/*",
     "https://api.cerebras.ai/*"
   ],
   "background": {
@@ -15,6 +16,13 @@
     {
       "matches": ["https://www.youtube.com/*"],
       "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["content_instagram.js"],
       "css": ["content.css"],
       "run_at": "document_start",
       "all_frames": false
